@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       home: Scaffold(
           appBar: AppBar(
-            title: Text('AuthApp - Google | Apple'),
+            title: Text('AuthApp - Google'),
             actions: [
               IconButton(
                 onPressed: () {
@@ -41,7 +41,10 @@ class MyApp extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(FontAwesomeIcons.google, color: Colors.white,),
+                        Icon(
+                          FontAwesomeIcons.google,
+                          color: Colors.white,
+                        ),
                         Text(
                           '   Sign in with Google',
                           style: TextStyle(color: Colors.white, fontSize: 17),

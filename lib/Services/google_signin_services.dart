@@ -8,8 +8,13 @@ class GoogleSignInServices {
   static Future signInWithGoogle() async {
     try {
       final GoogleSignInAccount? account = await _googleSignIn.signIn();
+      final googleKey = await account!.authentication;
+
       print(account);
-      // TODO: idToken
+      print('======== ID TOKEN ========');
+      print(googleKey.idToken);
+      
+      // TODO: llamar un servicio Rest a nuestro backend con el ID token
       return account;
     } catch (error) {
       print('error en google SignIn');

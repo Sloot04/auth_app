@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.auth_app">
+    package="com.sloot04.flutterauthapp">
    <application
         android:label="auth_app"
         android:icon="@mipmap/ic_launcher">

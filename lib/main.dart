@@ -4,7 +4,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String mail = 'AuthApp - Google';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,11 +18,14 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       home: Scaffold(
           appBar: AppBar(
-            title: Text('AuthApp - Google'),
+            title: Text(mail),
             actions: [
               IconButton(
                 onPressed: () {
                   GoogleSignInServices.signOut();
+                  mail = 'AuthApp - Google';
+
+                  setState(() {});
                 },
                 icon: Icon(FontAwesomeIcons.doorOpen),
               )
@@ -36,7 +45,10 @@ class MyApp extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
                     onPressed: () {
-                      GoogleSignInServices.signInWithGoogle();
+                      GoogleSignInServices.signInWithGoogle()
+                          .then((value) => setState(() {
+                                mail = value.email;
+                              }));
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
